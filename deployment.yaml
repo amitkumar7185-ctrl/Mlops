@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myflaskmodel
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: myflaskmodel
+  template:
+    metadata:
+      labels:
+        app: myflaskmodel
+    spec:
+      containers:
+      - name: myflaskmodel
+        image: mycontainerregistry.azurecr.io/myflaskmodel:v1
+        ports:
+        - containerPort: 5000
